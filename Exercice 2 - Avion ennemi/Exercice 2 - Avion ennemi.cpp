@@ -7,6 +7,10 @@ int main()
 	float a;
 	float b;
 	float c;
+	float delta;
+	float x0;
+	float x1;
+	float x2;
 	bool reponse = true;
 
 	while (reponse) {
@@ -26,6 +30,21 @@ int main()
 			std::cout << "L'avion entre en collision avec l'IA";
 		}
 		std::cout << "\n";
+		
+		if(delta > 0) {
+			x1 = (-b - sqrt(delta)) / (2 * a);
+			x2 = (-b + sqrt(delta)) / (2 * a);
+			std::cout << "L'IA tire en x1 = " << x1 << " et x2 = " << x2 << "\n";
+		}
+		else if(delta == 0) {
+			x0 = -b / (2 * a);
+			std::cout << "L'IA tire en x0 = " << x0 << "\n";
+		}
+		else {
+			float alpha = -b / (2 * a);
+			float beta = a * alpha * alpha + b * alpha + c;
+			std::cout << "L'IA tire en (" << alpha << ", " << beta << ")\n";
+		}
 		std::cout << "Rejouez ?";
 		std::cin >> reponse;
 	}
