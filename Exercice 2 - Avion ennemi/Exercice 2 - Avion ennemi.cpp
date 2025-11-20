@@ -7,7 +7,6 @@ int main()
 	float a;
 	float b;
 	float c;
-	float delta;
 	float x0;
 	float x1;
 	float x2;
@@ -30,6 +29,8 @@ int main()
 			std::cout << "L'avion entre en collision avec l'IA";
 		}
 		std::cout << "\n";
+
+		float delta = b * b - 4 * a * c;
 		
 		if(delta > 0) {
 			x1 = (-b - sqrt(delta)) / (2 * a);
@@ -45,6 +46,7 @@ int main()
 			float beta = a * alpha * alpha + b * alpha + c;
 			std::cout << "L'IA tire en (" << alpha << ", " << beta << ")\n";
 		}
+		std::cout << "\n";
 		std::cout << "Rejouez ?";
 		std::cin >> reponse;
 	}
